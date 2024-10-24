@@ -1,0 +1,35 @@
+$border-color: teal;
+
+@mixin alert($bgColor, $borderColor, $fontColor) {
+  background: $bgColor;
+  color: $fontColor;
+  border-color: $border-color;
+}
+.alert {
+  border: 1px dotted;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+
+  .head {
+    display: flex;
+    justify-content: space-between;
+    .left {
+      display: flex;
+      gap: 0.5rem;
+    }
+    .close {
+      cursor: pointer;
+    }
+  }
+}
+
+.alert-error {
+  @include alert(red, red, white);
+}
+.alert-success {
+  @include alert(green, green, white);
+}
+.alert-info {
+  @include alert(gray, gray, white);
+}
