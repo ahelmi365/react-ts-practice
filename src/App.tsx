@@ -1,35 +1,30 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BellRing,Check } from "lucide-react";
+import "./App.css";
+import Alert from "./components/Alert/Alert";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Alert
+        type="error"
+        title="Warnning"
+        icon={<BellRing />}
+        message="Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae voluptatum repudiandae quod doloribus dolor ullam, autem tempora ab, deleniti impedit, numquam cumque quidem dolore. Accusamus consequatur ad minus quibusdam dicta!"
+      />
+      <Alert
+        type="success"
+        title="Success"
+        icon={<Check />}
+        message="Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae voluptatum repudiandae quod doloribus dolor ullam, autem tempora ab, deleniti impedit, numquam cumque quidem dolore. Accusamus consequatur ad minus quibusdam dicta!"
+      />
+      <Alert
+        type="info"
+        title="info"
+        icon={<Check />}
+        message="Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae voluptatum repudiandae quod doloribus dolor ullam, autem tempora ab, deleniti impedit, numquam cumque quidem dolore. Accusamus consequatur ad minus quibusdam dicta!"
+      />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
