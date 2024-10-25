@@ -1,12 +1,27 @@
-$border-color: teal;
+$light-color: white;
 
 @mixin alert($bgColor, $borderColor, $fontColor) {
   background: $bgColor;
   color: $fontColor;
-  border-color: $border-color;
+  border-color: $borderColor;
 }
+.alert-error {
+  color: rgb(175 35 35);
+  background-color: rgb(255 175 175);
+  // border-color:     rgb(245 198 203);
+
+  //   @include alert(rgb(255 0 0), lightyellow, $light-color);
+}
+.alert-success {
+  @include alert(rgb(175, 255, 175), rgb(35, 115, 35), rgb(35, 115, 35));
+}
+.alert-info {
+  @include alert(gray, darkgray, $light-color);
+}
+
 .alert {
-  border: 1px dotted;
+  border-width: 1px;
+  border-style: dotted;
   border-radius: 0.5rem;
   padding: 1rem;
   margin-bottom: 0.5rem;
@@ -22,14 +37,4 @@ $border-color: teal;
       cursor: pointer;
     }
   }
-}
-
-.alert-error {
-  @include alert(red, red, white);
-}
-.alert-success {
-  @include alert(green, green, white);
-}
-.alert-info {
-  @include alert(gray, gray, white);
 }
