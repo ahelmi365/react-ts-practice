@@ -1,10 +1,11 @@
-import { BellRing,Check } from "lucide-react";
+import { BellRing, Check, CircleAlert } from "lucide-react";
 import "./App.css";
 import Alert from "./components/Alert/Alert";
 
 function App() {
   return (
     <>
+      <h1 className="text-3xl font-bold underline text-red-500">Hello world!</h1>
       <Alert
         type="error"
         title="Warnning"
@@ -20,7 +21,7 @@ function App() {
       <Alert
         type="info"
         title="info"
-        icon={<Check />}
+        icon={<CircleAlert />}
         message="Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae voluptatum repudiandae quod doloribus dolor ullam, autem tempora ab, deleniti impedit, numquam cumque quidem dolore. Accusamus consequatur ad minus quibusdam dicta!"
       />
     </>
