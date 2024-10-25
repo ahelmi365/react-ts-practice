@@ -6,17 +6,16 @@ $light-color: white;
   border-color: $borderColor;
 }
 .alert-error {
-  color: rgb(175 35 35);
-  background-color: rgb(255 175 175);
-  // border-color:     rgb(245 198 203);
-
-  //   @include alert(rgb(255 0 0), lightyellow, $light-color);
+  @include alert(rgb(255, 200, 200), lightyellow, rgb(150, 50, 50));
+}
+.alert-primary {
+  @include alert(rgb(200, 200, 255), lightyellow, rgb(50, 50, 150));
 }
 .alert-success {
-  @include alert(rgb(175, 255, 175), rgb(35, 115, 35), rgb(35, 115, 35));
+  @include alert(rgb(200, 255, 200), rgb(35, 115, 35), rgb(50, 150, 50));
 }
 .alert-info {
-  @include alert(gray, darkgray, $light-color);
+  @include alert(rgb(50, 50, 50), darkgray, rgb(250, 250, 250));
 }
 
 .alert {
