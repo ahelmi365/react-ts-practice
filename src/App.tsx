@@ -1,30 +1,17 @@
-import { BellRing, Check, CircleAlert } from "lucide-react";
-import "./App.css";
-import Alert from "./components/Alert/Alert";
+import ProductCard from "./components/ProductCard/ProductCard";
 
 function App() {
   return (
-    <>
-      <h1 className="text-3xl font-bold underline text-red-500">Hello world!</h1>
-      <Alert
-        type="error"
-        title="Warnning"
-        icon={<BellRing />}
-        message="Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae voluptatum repudiandae quod doloribus dolor ullam, autem tempora ab, deleniti impedit, numquam cumque quidem dolore. Accusamus consequatur ad minus quibusdam dicta!"
-      />
-      <Alert
-        type="success"
-        title="Success"
-        icon={<Check />}
-        message="Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae voluptatum repudiandae quod doloribus dolor ullam, autem tempora ab, deleniti impedit, numquam cumque quidem dolore. Accusamus consequatur ad minus quibusdam dicta!"
-      />
-      <Alert
-        type="info"
-        title="info"
-        icon={<CircleAlert />}
-        message="Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae voluptatum repudiandae quod doloribus dolor ullam, autem tempora ab, deleniti impedit, numquam cumque quidem dolore. Accusamus consequatur ad minus quibusdam dicta!"
-      />
-    </>
+    <div className="container m-auto p-2">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2">
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+      </div>
+    </div>
   );
 }
 
