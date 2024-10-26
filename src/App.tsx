@@ -8,8 +8,28 @@ import InputField from "./components/ui/InputField/InputField";
 
 function App() {
   // -------------- STATE ---------------------
-  const [product, setProduct] = useState<IProduct>({} as IProduct);
+  const [product, setProduct] = useState<IProduct>({
+    id: "",
+    title: "",
+    description: "",
+    imageURL: "",
+    price: "",
+    colors: [],
+    category: {
+      name: "",
+      imageURL: "",
+    },
+  });
   // -------------- HANDLER ---------------------
+  const handleInpuChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    console.log(name);
+    console.log(value);
+    setProduct({
+      ...product,
+      [name]: value,
+    });
+  };
   // -------------- RENDER ---------------------
   const renderedProductList = products.map((product) => (
     <ProductCard product={product} key={product.id} setProduct={setProduct} />
@@ -27,6 +47,8 @@ function App() {
           name={input.name}
           type={input.type}
           placeholder={input.placeholder || ""}
+          value={product[input.name]}
+          onChange={handleInpuChange}
         />
       </div>
     </div>
@@ -37,13 +59,18 @@ function App() {
         {renderedProductList}
       </div>
       <Dialog title={"Add New Product"}>
-        {/* <h2>hiiii</h2> */}
-        <div>{renderedAddNewProductInputs}</div>
+        <form action="">
+          <div>{renderedAddNewProductInputs}</div>
 
-        <div className="flex gap-4 mt-4 flex-col sm:flex-row sm:gap-12">
-          <Button className="bg-red-500 text-white basis-1/6 focus:bg-red-900 max-w-56">Cancel</Button>
-          <Button className="bg-blue-500 text-white basis-1/6 focus:bg-blue-900 max-w-56">Submit</Button>
-        </div>
+          <div className="flex gap-4 mt-4 flex-col sm:flex-row sm:gap-12">
+            <Button className="bg-red-500 text-white basis-1/6 focus:bg-red-900 max-w-56">
+              Cancel
+            </Button>
+            <Button className="bg-blue-500 text-white basis-1/6 focus:bg-blue-900 max-w-56">
+              Submit
+            </Button>
+          </div>
+        </form>
       </Dialog>
     </main>
   );
