@@ -4,7 +4,7 @@ export const products: IProduct[] = [
   {
     id: "1",
     title: "Wireless Headphones",
-    describtion:
+    description:
       "Noise-canceling headphones with deep bass and long battery life.",
     imageURL: "src/assets/images/products/1.jfif",
     price: "120.99",
@@ -17,7 +17,7 @@ export const products: IProduct[] = [
   {
     id: "2",
     title: "Tablet",
-    describtion:
+    description:
       "Lightweight tablet with high-resolution screen, perfect for reading and watching videos.",
     imageURL: "src/assets/images/products/1.jfif",
     price: "349.99",
@@ -30,7 +30,7 @@ export const products: IProduct[] = [
   {
     id: "3",
     title: "Running Shoes",
-    describtion: "Lightweight running shoes with responsive cushioning.",
+    description: "Lightweight running shoes with responsive cushioning.",
     imageURL: "src/assets/images/products/1.jfif",
     price: "79.99",
     colors: ["red-600", "blue-700", "yellow-400"],
@@ -42,7 +42,7 @@ export const products: IProduct[] = [
   {
     id: "4",
     title: "Gaming Laptop",
-    describtion: "High-performance laptop with powerful graphics card.",
+    description: "High-performance laptop with powerful graphics card.",
     imageURL: "src/assets/images/products/1.jfif",
     price: "1200.00",
     colors: ["gray-800", "blue-900", "orange-500"],
@@ -54,7 +54,7 @@ export const products: IProduct[] = [
   {
     id: "5",
     title: "Bluetooth Speaker",
-    describtion: "Portable speaker with stereo sound and deep bass.",
+    description: "Portable speaker with stereo sound and deep bass.",
     imageURL: "src/assets/images/products/1.jfif",
     price: "49.99",
     colors: ["red-500", "yellow-600", "pink-400"],
@@ -66,7 +66,7 @@ export const products: IProduct[] = [
   {
     id: "6",
     title: "Digital Camera",
-    describtion: "Compact camera with 24MP sensor and 4K video recording.",
+    description: "Compact camera with 24MP sensor and 4K video recording.",
     imageURL: "src/assets/images/products/1.jfif",
     price: "299.99",
     colors: ["gray-600", "cyan-700", "teal-500"],
@@ -94,7 +94,7 @@ export const newProductFormInputs: IFormInput[] = [
   },
   {
     id: "image",
-    name: "image",
+    name: "imageURL",
     label: "Product Image URL",
     type: "text",
     placeholder: "Product Image URL",
