@@ -1,7 +1,7 @@
 export interface IProduct {
   id: string;
   title: string;
-  describtion: string;
+  description: string;
   imageURL: string;
   price: string;
   colors: string[];
@@ -11,10 +11,11 @@ export interface IProduct {
   };
 }
 
+type inputName = "title" | "description" | "imageURL" | "price";
 export interface IFormInput {
   id: string;
-  name: string;
+  name: inputName;
   label: string;
   type: string;
-  placeholder?:string
+  placeholder?: string;
 }
