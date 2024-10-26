@@ -5,10 +5,10 @@ interface IProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
   width?: "w-full" | "w-fit";
 }
-const Button = ({ children, className, width = "w-fit", ...rest }: IProps) => {
+const Button = ({ children, className, width = "w-full", ...rest }: IProps) => {
   return (
     <button
-      className={`rounded-md outline-none border-2 p-1 flex-1 ${width} ${className}`}
+      className={`rounded-md outline-none border-0 p-1 flex-1 ${width} ${className}`}
       {...rest}
     >
       {children}
