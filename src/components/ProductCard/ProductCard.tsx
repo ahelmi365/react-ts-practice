@@ -9,7 +9,7 @@ interface IProps {
 }
 
 const ProductCard = ({ product, setProduct }: IProps) => {
-  const { id, title, describtion, imageURL, price, colors, category } = product;
+  const { id, title, description, imageURL, price, colors, category } = product;
   return (
     <div className="order p-2 border rounded-md flex flex-col ">
       <div className={""}>
@@ -21,7 +21,7 @@ const ProductCard = ({ product, setProduct }: IProps) => {
       </div>
 
       <h3>{title}</h3>
-      <p>{sliceText(describtion, 60)}</p>
+      <p>{sliceText(description, 60)}</p>
       <div className="flex gap-1 my-2">
         {colors.map((color) => (
           <span
@@ -45,7 +45,7 @@ const ProductCard = ({ product, setProduct }: IProps) => {
         <Button
           className="bg-red-500 rder-red-300 text-white"
           onClick={() => {
-            setProduct(product)
+            // setProduct(product)
             const dialog = document.querySelector("dialog");
             dialog?.showModal();
           }}
