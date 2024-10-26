@@ -1,0 +1,43 @@
+/*   Closed state of the dialog   */
+dialog {
+  opacity: 0;
+  transform: translateY(-100vh);
+  transition: 
+    opacity 0.7s ease-out, 
+    display 0.7s ease-out allow-discrete,
+    overlay 0.7s ease-out allow-discrete, transform 0.7s ease-out;
+  /* transition: all 0.7s ease-out allow-discrete; */
+}
+
+/* Open state of the dialog  */
+dialog[open] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/*   Before-open state  */
+/* set opacity to 0 whne the modal starting to open */
+@starting-style {
+  dialog[open] {
+    opacity: 0;
+    transform: translateY(-100vh);
+  }
+}
+/* Transition the :backdrop when the dialog modal is promoted to the top layer */
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0%);
+  backdrop-filter: blur(0);
+  
+  transition: all 0.7s allow-discrete;
+}
+
+dialog[open]::backdrop {
+  background-color: rgb(0 0 0 / 50%);
+  backdrop-filter: blur(5px);
+}
+
+@starting-style {
+  dialog[open]::backdrop {
+    background-color: rgb(0 0 0 / 0%);
+  }
+}
