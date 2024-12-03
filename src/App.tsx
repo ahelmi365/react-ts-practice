@@ -8,6 +8,7 @@ import InputField from "./components/ui/InputField/InputField";
 import { validateProductInfo } from "./validation/inedx";
 import ErrorMessage from "./components/ui/ErrorMessage/ErrorMessage";
 import CircleColor from "./components/ui/CircleColor/CircleColor";
+import ViewSelectedColors from "./components/ViewSelectedColors/ViewSelectedColors";
 
 function App() {
   // -------------- CONSTS ---------------------
@@ -74,8 +75,15 @@ function App() {
     dialogRef?.current?.close();
   };
 
-  const handleColorClick = (color: string) => {
-    console.log({color})
+  const handleSelectNewProductColor = (color: string) => {
+    if (product.colors.includes(color)) {
+      const colorIndex = product.colors.findIndex((c) => c === color);
+      product.colors.splice(colorIndex, 1);
+    } else {
+      product.colors.push(color);
+    }
+    setProduct({ ...product, colors: product.colors });
+    console.log({ product });
   };
   // -------------- RENDER ---------------------
   const renderedProductList = products.map((product) => (
@@ -108,8 +116,9 @@ function App() {
       colorCode={color}
       key={color}
       onClick={() => {
-        console.log("cliced color")
-        handleColorClick(color)}}
+        console.log("cliced color");
+        handleSelectNewProductColor(color);
+      }}
     />
   ));
 
@@ -117,8 +126,7 @@ function App() {
     <main className="container m-auto p-2">
       <Button
         onClick={() => {
-          const dialog = document.querySelector("dialog");
-          dialog?.showModal();
+          dialogRef?.current?.showModal();
         }}
         className="bg-blue-500 text-white basis-1/6 focus:bg-blue-900 max-w-56 mb-8"
       >
@@ -130,6 +138,10 @@ function App() {
       <Dialog title={"Add New Product"} dialogRef={dialogRef}>
         <form action="">
           <div>{renderedAddNewProductInputs}</div>
+
+          <div className="seelected-colors mb-3 min-h-5">
+            <ViewSelectedColors colors={product.colors} />
+          </div>
 
           <div className="flex gap-1 flex-wrap">{renderedColorList}</div>
 
