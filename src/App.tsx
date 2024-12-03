@@ -36,7 +36,7 @@ function App() {
   const [errorMessages, setErrorMessages] =
     useState<IProductInfoForm>(initialErrorMessages);
   // -------------- HANDLERS ---------------------
-  const handleInpuChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setErrorMessages({ ...errorMessages, [name]: "" });
     // const newErrorMessages = validateProductInfo({ ...product, [name]: value });
@@ -95,7 +95,7 @@ function App() {
           type={input.type}
           placeholder={input.placeholder || ""}
           value={product[input.name]}
-          onChange={handleInpuChange}
+          onChange={handleInputChange}
         />
         {/* <p className="text-red-900 text-sm">{errorMessages[input.name]}</p> */}
         <ErrorMessage text={errorMessages[input.name]} />
