@@ -25,7 +25,7 @@ const ProductCard = ({ product, setProduct }: IProps) => {
       <p>{sliceText(description, 60)}</p>
       <div className="flex gap-1 my-2">
         {colors.map((color) => (
-          <CircleColor colorCode={color}  key={color}/>
+          <CircleColor colorCode={color} key={color} />
         ))}
       </div>
 
@@ -38,17 +38,17 @@ const ProductCard = ({ product, setProduct }: IProps) => {
         /> */}
       </div>
       <div className="flex justify-between gap-8 mt-4">
-        <Button className="bg-blue-500 border-blue-300 text-white">Edit</Button>
         <Button
-          className="bg-red-500 rder-red-300 text-white"
-          onClick={() => {
-            // setProduct(product)
-            const dialog = document.querySelector("dialog");
-            dialog?.showModal();
-          }}
+          className="bg-blue-500 border-blue-300 text-white"
+          // onClick={() => {
+          //   // setProduct(product)
+          //   const dialog = document.querySelector("dialog");
+          //   dialog?.showModal();
+          // }}
         >
-          Delete
+          Edit
         </Button>
+        <Button className="bg-red-500 rder-red-300 text-white">Delete</Button>
       </div>
     </div>
   );
