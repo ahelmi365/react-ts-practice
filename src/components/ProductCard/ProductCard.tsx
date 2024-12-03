@@ -1,6 +1,7 @@
 import { IProduct } from "../../interfaces/inedx";
 import { sliceText } from "../../utils/functions";
 import Button from "../ui/Button/Button";
+import CircleColor from "../ui/CircleColor/CircleColor";
 import Image from "./../Image/Image";
 
 interface IProps {
@@ -24,10 +25,7 @@ const ProductCard = ({ product, setProduct }: IProps) => {
       <p>{sliceText(description, 60)}</p>
       <div className="flex gap-1 my-2">
         {colors.map((color) => (
-          <span
-            key={color}
-            className={`w-5 h-5 bg-${color} rounded-full cursor-pointer border-2`}
-          ></span>
+          <CircleColor colorCode={color}  key={color}/>
         ))}
       </div>
 
@@ -40,7 +38,6 @@ const ProductCard = ({ product, setProduct }: IProps) => {
         /> */}
       </div>
       <div className="flex justify-between gap-8 mt-4">
-     
         <Button className="bg-blue-500 border-blue-300 text-white">Edit</Button>
         <Button
           className="bg-red-500 rder-red-300 text-white"
