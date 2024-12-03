@@ -11,6 +11,12 @@ export interface IProduct {
   };
 }
 
+export interface IProductInfoForm {
+  title: string;
+  description: string;
+  imageURL: string;
+  price: string;
+}
 type inputName = "title" | "description" | "imageURL" | "price";
 export interface IFormInput {
   id: string;
