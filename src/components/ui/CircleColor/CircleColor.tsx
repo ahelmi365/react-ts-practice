@@ -5,12 +5,13 @@ interface IProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const CircleColor = ({ colorCode, ...rest }: IProps) => {
-
   return (
-    <div
+    <button
       className={`w-5 h-5 rounded-full border`}
       style={{ backgroundColor: colorCode }}
-    ></div>
+      type="button"
+      {...rest}
+    ></button>
   );
 };
 
