@@ -126,6 +126,8 @@ function App() {
     <main className="container m-auto p-2">
       <Button
         onClick={() => {
+          setProduct(initialProductInfo);
+          setErrorMessages(initialErrorMessages);
           dialogRef?.current?.showModal();
         }}
         className="bg-blue-500 text-white basis-1/6 focus:bg-blue-900 max-w-56 mb-8"
