@@ -49,7 +49,7 @@ function App() {
     });
   };
 
-  const handleAddNewProduct = (event: FormEvent) => {
+  const handleSubmitNewProduct = (event: FormEvent) => {
     event.preventDefault();
     setProduct({
       ...product,
@@ -122,14 +122,15 @@ function App() {
     />
   ));
 
+  const handlOpenNewProductModal = () => {
+    setProduct(initialProductInfo);
+    setErrorMessages(initialErrorMessages);
+    dialogRef?.current?.showModal();
+  };
   return (
     <main className="container m-auto p-2">
       <Button
-        onClick={() => {
-          setProduct(initialProductInfo);
-          setErrorMessages(initialErrorMessages);
-          dialogRef?.current?.showModal();
-        }}
+        onClick={handlOpenNewProductModal}
         className="bg-blue-500 text-white basis-1/6 focus:bg-blue-900 max-w-56 mb-8"
       >
         Add New Product
@@ -137,6 +138,8 @@ function App() {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-2">
         {renderedProductList}
       </div>
+
+      {/* add new produc modal */}
       <Dialog title={"Add New Product"} dialogRef={dialogRef}>
         <form action="">
           <div>{renderedAddNewProductInputs}</div>
@@ -151,7 +154,7 @@ function App() {
             <Button
               type="submit"
               className="bg-blue-500 text-white basis-1/6 focus:bg-blue-900 max-w-56"
-              onClick={handleAddNewProduct}
+              onClick={handleSubmitNewProduct}
             >
               Submit
             </Button>
