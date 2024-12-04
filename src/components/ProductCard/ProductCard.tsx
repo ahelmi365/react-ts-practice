@@ -7,9 +7,14 @@ import Image from "./../Image/Image";
 interface IProps {
   product: IProduct;
   setProduct: React.Dispatch<React.SetStateAction<IProduct>>;
+  handleEditProductDetails: (product: IProduct) => void;
 }
 
-const ProductCard = ({ product, setProduct }: IProps) => {
+const ProductCard = ({
+  product,
+  setProduct,
+  handleEditProductDetails,
+}: IProps) => {
   const { id, title, description, imageURL, price, colors, category } = product;
   return (
     <div className="order p-2 border rounded-md flex flex-col ">
@@ -31,20 +36,11 @@ const ProductCard = ({ product, setProduct }: IProps) => {
 
       <div className="flex justify-between items-center">
         <span>${price}</span>
-        {/* <Image
-          url={category.imageURL}
-          alt={category.name}
-          className="h-10 w-10 border rounded-full object-center cursor-pointer"
-        /> */}
       </div>
       <div className="flex justify-between gap-8 mt-4">
         <Button
           className="bg-blue-500 border-blue-300 text-white"
-          // onClick={() => {
-          //   // setProduct(product)
-          //   const dialog = document.querySelector("dialog");
-          //   dialog?.showModal();
-          // }}
+          onClick={() => handleEditProductDetails(product)}
         >
           Edit
         </Button>

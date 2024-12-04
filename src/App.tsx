@@ -40,9 +40,6 @@ function App() {
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setErrorMessages({ ...errorMessages, [name]: "" });
-    // const newErrorMessages = validateProductInfo({ ...product, [name]: value });
-    // setErrorMessages(newErrorMessages);
-
     setProduct({
       ...product,
       [name]: value,
@@ -55,6 +52,7 @@ function App() {
       ...product,
       id: Date.now().toString(),
     });
+
     console.log({ product });
     const errors = validateProductInfo(product);
     setErrorMessages(errors);
@@ -65,6 +63,7 @@ function App() {
       (errorMessage: string) => errorMessage.length > 0
     );
     if (!hasErrorMessage) {
+      products.push(product);
       dialogRef?.current?.close();
     }
   };
@@ -85,9 +84,25 @@ function App() {
     setProduct({ ...product, colors: product.colors });
     console.log({ product });
   };
+
+  const handlOpenNewProductModal = () => {
+    setProduct(initialProductInfo);
+    setErrorMessages(initialErrorMessages);
+    dialogRef?.current?.showModal();
+  };
+
+  const handleEditProductDetails = (product: IProduct) => {
+    setProduct(product);
+    dialogRef.current?.showModal();
+  };
   // -------------- RENDER ---------------------
   const renderedProductList = products.map((product) => (
-    <ProductCard product={product} key={product.id} setProduct={setProduct} />
+    <ProductCard
+      product={product}
+      key={product.id}
+      setProduct={setProduct}
+      handleEditProductDetails={handleEditProductDetails}
+    />
   ));
 
   const renderedAddNewProductInputs = newProductFormInputs.map((input) => (
@@ -122,11 +137,6 @@ function App() {
     />
   ));
 
-  const handlOpenNewProductModal = () => {
-    setProduct(initialProductInfo);
-    setErrorMessages(initialErrorMessages);
-    dialogRef?.current?.showModal();
-  };
   return (
     <main className="container m-auto p-2">
       <Button
